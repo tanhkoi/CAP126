@@ -7,9 +7,9 @@ async function loadPosts() {
     const postList = document.getElementById("postList");
     postList.innerHTML = "";
     posts.forEach(post => {
-        if (post.deleted) return;
+        if (!post.isPublished) return;
         const li = document.createElement("li");
-        li.innerHTML = `${post.title} - ${post.content} (Tác giả: ${post.authorName})
+        li.innerHTML = `${post.title} - Views: ${post.views} (Tác giả: ${post.author})
                             <button onclick="deletePost(${post.id})">Xóa</button>`;
         postList.appendChild(li);
     });
@@ -25,8 +25,7 @@ async function loadAuthors() {
     authors.forEach((author) => {
         //
         const li = document.createElement("li");
-        li.innerHTML = `${author.name} - Số bài post: ${author.postCount}
-                            <button onclick="deletePost(${author.id})">Xóa</button>`;
+        li.innerHTML = `${author.name} - Số bài viết: ${author.postCount}`;
         authorList.appendChild(li);
         //
         const option = document.createElement("option");
@@ -42,7 +41,6 @@ document
     .addEventListener("submit", async function (event) {
         event.preventDefault();
         const title = document.getElementById("title").value;
-        const content = document.getElementById("content").value;
         const authorId = document.getElementById("author").value;
 
         const authorResponse = await fetch(`${API_URL}/authors/${authorId}`);
@@ -50,10 +48,9 @@ document
 
         const newPost = {
             title,
-            content,
-            authorId,
-            authorName: author.name,
-            deleted: false,
+            views: 0,
+            author: author.name,
+            isPublished: true,
         };
 
         // Tạo bài post

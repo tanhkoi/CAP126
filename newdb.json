@@ -2,57 +2,92 @@
   "posts": [
     {
       "id": "1",
-      "title": "Bài viết 1",
-      "content": "Nội dung 1",
-      "authorId": 1,
-      "authorName": "Nguyễn Văn A",
-      "deleted": true
+      "title": "First Post",
+      "views": 150,
+      "author": "Alice",
+      "isPublished": true
     },
     {
-      "id": "705d",
+      "id": "2",
+      "title": "Second Post",
+      "views": 250,
+      "author": "Bob",
+      "isPublished": false
+    },
+    {
+      "id": "3",
+      "title": "Third Post",
+      "views": 400,
+      "author": "Charlie",
+      "isPublished": true
+    },
+    {
+      "id": "21",
+      "title": "Sample Post",
+      "views": "123",
+      "author": "David",
+      "isPublished": false
+    },
+    {
+      "id": 3,
+      "title": "Duplicate Post",
+      "views": "123",
+      "author": "Eve",
+      "isPublished": true
+    },
+    {
+      "id": "87cc",
       "title": "test1",
-      "content": "test1",
-      "authorId": "2",
-      "authorName": "Trần Thị B",
-      "deleted": false
+      "views": 0,
+      "author": "David",
+      "isPublished": true
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
     },
     {
-      "id": "cb16",
-      "title": "test2",
-      "content": "test2",
-      "authorId": "1",
-      "authorName": "Nguyễn Văn A",
-      "deleted": false
-    },
-    {
-      "id": "7adc",
-      "title": "asd",
-      "content": "asd",
-      "authorId": "4953",
-      "authorName": "asd",
-      "deleted": false
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
     }
   ],
   "authors": [
     {
       "id": "1",
-      "name": "Nguyễn Văn A",
-      "postCount": 2
+      "name": "Alice",
+      "postCount": 1
     },
     {
       "id": "2",
-      "name": "Trần Thị B",
+      "name": "Bob",
       "postCount": 1
     },
     {
-      "id": "4953",
-      "name": "asd",
+      "id": "3",
+      "name": "Charlie",
+      "postCount": 2
+    },
+    {
+      "id": "4",
+      "name": "David",
+      "postCount": 2
+    },
+    {
+      "id": "5",
+      "name": "Eve",
       "postCount": 1
     },
     {
-      "id": "3900",
-      "name": "123123",
+      "id": "a532",
+      "name": "123",
       "postCount": 0
     }
-  ]
+  ],
+  "profile": {
+    "name": "typicode"
+  }
 }
