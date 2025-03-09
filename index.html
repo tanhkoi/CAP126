@@ -4,12 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quản lý Bài Viết</title>
-    <script defer src="./app.js"></script>
   </head>
   <body>
-    <h1>Danh sách Bài Viết</h1>
-    <ul id="postList"></ul>
-
     <h2>Thêm Bài Viết</h2>
     <form id="postForm">
       <label>Tiêu đề: <input type="text" id="title" required /></label><br />
@@ -21,13 +17,18 @@
       <button type="submit">Thêm</button>
     </form>
 
-    <h1>Danh sách Tác Giả</h1>
-    <ul id="authorList"></ul>
+    <h1>Danh sách Bài Viết</h1>
+    <ul id="postList" class="list-group"></ul>
 
     <h2>Thêm Tác Giả</h2>
     <form id="authorForm">
       <label>Tên: <input type="text" id="name" required /></label><br />
       <button type="submit">Thêm</button>
     </form>
+
+    <h1>Danh sách Tác Giả</h1>
+    <ul id="authorList"></ul>
+
+    <script defer src="./app.js"></script>
   </body>
 </html>

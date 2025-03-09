@@ -20,8 +20,15 @@ async function loadAuthors() {
     const response = await fetch(`${API_URL}/authors`);
     const authors = await response.json();
     const select = document.getElementById("author");
+    const authorList = document.getElementById("authorList");
     select.innerHTML = "";
     authors.forEach((author) => {
+        //
+        const li = document.createElement("li");
+        li.innerHTML = `${author.name} - Số bài post: ${author.postCount}
+                            <button onclick="deletePost(${author.id})">Xóa</button>`;
+        authorList.appendChild(li);
+        //
         const option = document.createElement("option");
         option.value = author.id;
         option.textContent = author.name;
