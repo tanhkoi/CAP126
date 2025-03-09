@@ -1,0 +1,53 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "Bài viết 1",
+      "content": "Nội dung 1",
+      "authorId": 1,
+      "authorName": "Nguyễn Văn A",
+      "deleted": true
+    },
+    {
+      "id": "705d",
+      "title": "test1",
+      "content": "test1",
+      "authorId": "2",
+      "authorName": "Trần Thị B",
+      "deleted": false
+    },
+    {
+      "id": "cb16",
+      "title": "test2",
+      "content": "test2",
+      "authorId": "1",
+      "authorName": "Nguyễn Văn A",
+      "deleted": false
+    },
+    {
+      "id": "7adc",
+      "title": "asd",
+      "content": "asd",
+      "authorId": "4953",
+      "authorName": "asd",
+      "deleted": false
+    }
+  ],
+  "authors": [
+    {
+      "id": "1",
+      "name": "Nguyễn Văn A",
+      "postCount": 2
+    },
+    {
+      "id": "2",
+      "name": "Trần Thị B",
+      "postCount": 1
+    },
+    {
+      "id": "4953",
+      "name": "asd",
+      "postCount": 1
+    }
+  ]
+}
