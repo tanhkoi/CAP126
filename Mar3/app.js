@@ -42,25 +42,21 @@ document
         event.preventDefault();
         const title = document.getElementById("title").value;
         const authorId = document.getElementById("author").value;
-
         const authorResponse = await fetch(`${API_URL}/authors/${authorId}`);
         const author = await authorResponse.json();
-
         const newPost = {
             title,
             views: 0,
             author: author.name,
             isPublished: true,
         };
-
-        // Tạo bài post
+        // 
         await fetch(`${API_URL}/posts`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newPost),
         });
-
-        // Tăng số lượng bài viết của tác giả
+        // 
         await fetch(`${API_URL}/authors/${authorId}`, {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
@@ -80,15 +76,12 @@ document
             name,
             postCount: 0,
         }
-
         await fetch(`${API_URL}/authors`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newAuthor),
         });
-
         console.log(newAuthor);
-
         loadAuthors();
     });
 
@@ -103,7 +96,6 @@ async function deletePost(id) {
     loadPosts();
 }
 
-// Khởi động
 window.onload = () => {
     loadPosts();
     loadAuthors();
