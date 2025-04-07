@@ -1,0 +1,49 @@
+let mongoose = require("mongoose");
+const slugify = require("slugify");
+let productSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+      unique: [true, "truong nay la unique"],
+    },
+    price: {
+      type: Number,
+      default: 0,
+      min: 0,
+    },
+    quantity: {
+      type: Number,
+      default: 0,
+      min: 0,
+    },
+    description: {
+      type: String,
+      default: "",
+    },
+    imgURL: {
+      type: String,
+      default: "",
+    },
+    category: {
+      type: mongoose.Types.ObjectId,
+      ref: "category",
+      required: true,
+    },
+    isDeleted: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+productSchema.pre("save", function (next) {
+  if (!this.isModified("name")) return next();
+  this.slug = slugify(this.name, { lower: true, strict: true });
+  next();
+});
+
+module.exports = mongoose.model("product", productSchema);
